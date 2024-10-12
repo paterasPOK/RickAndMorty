@@ -1,4 +1,4 @@
-package com.example.rickandmorty.feature.character.composables
+package com.example.rickandmorty.feature.character.character_info_screen
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -18,7 +18,7 @@ import com.example.rickandmorty.base.composables.CharacterDataInfoColumn
 import com.example.rickandmorty.base.composables.RickAndMortyImage
 
 @Composable
-fun CharacterInfoPage(
+fun CharacterInfoScreen(
     character: Result,
     modifier: Modifier
 ) {
@@ -27,7 +27,6 @@ fun CharacterInfoPage(
         modifier = modifier
             .fillMaxSize()
             .padding(8.dp)
-
     ) {
         Text(
             text = character.status
@@ -61,7 +60,7 @@ fun CharacterInfoPage(
 @Preview
 @Composable
 private fun CharacterInfoPagePrev() {
-    CharacterInfoPage(
+    CharacterInfoScreen(
         character = Result(
             id = 1,
             name = "Rick Sanchez",
