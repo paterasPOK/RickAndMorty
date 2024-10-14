@@ -9,10 +9,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.domain.models.characters.Location
-import com.example.domain.models.characters.Origin
 import com.example.domain.models.characters.Result
 import com.example.rickandmorty.base.composables.CharacterDataInfoColumn
 import com.example.rickandmorty.base.composables.RickAndMortyImage
@@ -23,6 +20,7 @@ fun CharacterInfoScreen(
     modifier: Modifier
 ) {
     val context = LocalContext.current
+
     Column(
         modifier = modifier
             .fillMaxSize()
@@ -55,26 +53,4 @@ fun CharacterInfoScreen(
         )
         Spacer(modifier = Modifier.height(32.dp))
     }
-}
-
-@Preview
-@Composable
-private fun CharacterInfoPagePrev() {
-    CharacterInfoScreen(
-        character = Result(
-            id = 1,
-            name = "Rick Sanchez",
-            status = "Alive",
-            species = "Human",
-            type = "",
-            gender = "Male",
-            origin = Origin("Earth", "https://rickandmortyapi.com/api/location/1"),
-            location = Location("Earth", "https://rickandmortyapi.com/api/location/20"),
-            image = "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
-            episode = listOf("https://rickandmortyapi.com/api/episode/1"),
-            url = "https://rickandmortyapi.com/api/character/1",
-            created = "2017-11-04T18:48:46.250Z"
-        ),
-        modifier = Modifier
-    )
 }
