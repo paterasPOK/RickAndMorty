@@ -1,6 +1,7 @@
 package com.example.rickandmorty.feature.character.composables
 
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
@@ -23,7 +24,8 @@ import com.example.rickandmorty.base.theme.RickTextPrimary
 @Composable
 fun CharacterCard(
     modifier: Modifier,
-    result: Result
+    result: Result,
+    onClick: () -> Unit
 ) {
     val context = LocalContext.current
     Column(
@@ -34,6 +36,7 @@ fun CharacterCard(
                 brush = Brush.verticalGradient(listOf(Color.Transparent, RickAction))
             )
             .clip(RoundedCornerShape(12.dp))
+            .clickable { onClick() }
     ) {
 
         Box {

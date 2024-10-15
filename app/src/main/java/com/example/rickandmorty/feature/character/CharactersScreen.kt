@@ -14,12 +14,15 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.example.rickandmorty.feature.character.composables.CharacterCard
 import com.example.rickandmorty.feature.character.viewmodels.CharactersViewModel
 import org.koin.androidx.compose.getViewModel
 
 @Composable
 fun CharactersScreen(
+    navController: NavController,
+    onCharacterClicked: (Int) -> Unit,
     modifier: Modifier,
     viewModel: CharactersViewModel = getViewModel<CharactersViewModel>()
 ) {
@@ -41,7 +44,12 @@ fun CharactersScreen(
                     horizontalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
                     rowCharactersItems.forEach { rowCharacter ->
-                        CharacterCard(result = rowCharacter, modifier = Modifier.weight(1f))
+                        CharacterCard(
+                            result = rowCharacter,
+                            modifier = Modifier.weight(1f)
+                        ) {
+                            onCharacterClicked(rowCharacter.id)
+                        }
                         if (rowCharactersItems.size != 2) {
                             Spacer(modifier = Modifier.weight(1f))
                         }
